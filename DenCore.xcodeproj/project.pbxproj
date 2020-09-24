@@ -21,9 +21,14 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		007DE11F2519108000B7D8EE /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007DE11E2519108000B7D8EE /* Arithmetic.swift */; };
+		009ACB9F251A21FD000DB0AA /* DefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009ACB9E251A21FD000DB0AA /* DefaultKeys.swift */; };
+		009ACBB3251A25FA000DB0AA /* DefaultOperatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */; };
+		009ACBC5251BE583000DB0AA /* FunctionKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */; };
+		00B035F42520D52A005ACEFA /* DenCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035F32520D52A005ACEFA /* DenCoreTests.swift */; };
 		OBJ_24 /* DenCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DenCore.swift */; };
 		OBJ_31 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_42 /* DenCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* DenCoreTests.swift */; };
+		OBJ_42 /* NumberKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* NumberKeysTest.swift */; };
 		OBJ_43 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* XCTestManifests.swift */; };
 		OBJ_45 /* DenCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DenCore::DenCore::Product" /* DenCore.framework */; };
 /* End PBXBuildFile section */
@@ -46,9 +51,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		007DE11E2519108000B7D8EE /* Arithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arithmetic.swift; sourceTree = "<group>"; };
+		009ACB9E251A21FD000DB0AA /* DefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultKeys.swift; sourceTree = "<group>"; };
+		009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultOperatorsTest.swift; sourceTree = "<group>"; };
+		009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionKeysTest.swift; sourceTree = "<group>"; };
+		00B035F32520D52A005ACEFA /* DenCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenCoreTests.swift; sourceTree = "<group>"; };
 		"DenCore::DenCore::Product" /* DenCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DenCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DenCore::DenCoreTests::Product" /* DenCoreTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DenCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_12 /* DenCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenCoreTests.swift; sourceTree = "<group>"; };
+		OBJ_12 /* NumberKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeysTest.swift; sourceTree = "<group>"; };
 		OBJ_13 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_17 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		OBJ_18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -86,8 +96,11 @@
 		OBJ_11 /* DenCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_12 /* DenCoreTests.swift */,
+				OBJ_12 /* NumberKeysTest.swift */,
+				009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */,
+				009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */,
 				OBJ_13 /* XCTestManifests.swift */,
+				00B035F32520D52A005ACEFA /* DenCoreTests.swift */,
 			);
 			name = DenCoreTests;
 			path = Tests/DenCoreTests;
@@ -102,7 +115,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -112,7 +125,6 @@
 				OBJ_17 /* LICENSE */,
 				OBJ_18 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -127,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* DenCore.swift */,
+				007DE11E2519108000B7D8EE /* Arithmetic.swift */,
+				009ACB9E251A21FD000DB0AA /* DefaultKeys.swift */,
 			);
 			name = DenCore;
 			path = Sources/DenCore;
@@ -198,7 +212,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -217,6 +231,8 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_24 /* DenCore.swift in Sources */,
+				009ACB9F251A21FD000DB0AA /* DefaultKeys.swift in Sources */,
+				007DE11F2519108000B7D8EE /* Arithmetic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +248,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_42 /* DenCoreTests.swift in Sources */,
+				OBJ_42 /* NumberKeysTest.swift in Sources */,
+				00B035F42520D52A005ACEFA /* DenCoreTests.swift in Sources */,
+				009ACBC5251BE583000DB0AA /* FunctionKeysTest.swift in Sources */,
+				009ACBB3251A25FA000DB0AA /* DefaultOperatorsTest.swift in Sources */,
 				OBJ_43 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
