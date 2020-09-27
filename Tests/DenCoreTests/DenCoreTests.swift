@@ -8,12 +8,12 @@
 import XCTest
 @testable import DenCore
 
-func DenAssertSuccess(_ lhs: CircuitBoard.CircuitBoardResult, _ rhs: Double) {
+func DenAssertSuccess(_ lhs: CircuitBoardResult, _ rhs: Double) {
     XCTAssertEqual(lhs.0, rhs)
     XCTAssertNil(lhs.1)
 }
 
-func DenAssertSuccess(_ lhs: CircuitBoard.CircuitBoardResult, _ rhs: Double, accuracy: Double) {
+func DenAssertSuccess(_ lhs: CircuitBoardResult, _ rhs: Double, accuracy: Double) {
     do {
         let lhsResult = try XCTUnwrap(lhs.0)
         XCTAssertEqual(lhsResult, rhs, accuracy: accuracy)
@@ -23,7 +23,7 @@ func DenAssertSuccess(_ lhs: CircuitBoard.CircuitBoardResult, _ rhs: Double, acc
     XCTAssertNil(lhs.1)
 }
 
-func DenAssertFailure(_ lhs: CircuitBoard.CircuitBoardResult, _ rhs: CircuitBoardError) {
+func DenAssertFailure(_ lhs: CircuitBoardResult, _ rhs: CircuitBoardError) {
     XCTAssertNil(lhs.0)
     do {
         let lhsError = try XCTUnwrap(lhs.1)
