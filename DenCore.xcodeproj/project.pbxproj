@@ -25,7 +25,10 @@
 		009ACB9F251A21FD000DB0AA /* DefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009ACB9E251A21FD000DB0AA /* DefaultKeys.swift */; };
 		009ACBB3251A25FA000DB0AA /* DefaultOperatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */; };
 		009ACBC5251BE583000DB0AA /* FunctionKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */; };
+		00AAE8C5252292D500024E48 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AAE8C4252292D500024E48 /* Network.swift */; };
 		00B035F42520D52A005ACEFA /* DenCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035F32520D52A005ACEFA /* DenCoreTests.swift */; };
+		00B035FA2521DBB2005ACEFA /* Geocode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035F92521DBB2005ACEFA /* Geocode.swift */; };
+		00B03600252216B9005ACEFA /* GeocodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035FF252216B9005ACEFA /* GeocodeTest.swift */; };
 		OBJ_24 /* DenCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DenCore.swift */; };
 		OBJ_31 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_42 /* NumberKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* NumberKeysTest.swift */; };
@@ -55,7 +58,10 @@
 		009ACB9E251A21FD000DB0AA /* DefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultKeys.swift; sourceTree = "<group>"; };
 		009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultOperatorsTest.swift; sourceTree = "<group>"; };
 		009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionKeysTest.swift; sourceTree = "<group>"; };
+		00AAE8C4252292D500024E48 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		00B035F32520D52A005ACEFA /* DenCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenCoreTests.swift; sourceTree = "<group>"; };
+		00B035F92521DBB2005ACEFA /* Geocode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocode.swift; sourceTree = "<group>"; };
+		00B035FF252216B9005ACEFA /* GeocodeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeTest.swift; sourceTree = "<group>"; };
 		"DenCore::DenCore::Product" /* DenCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DenCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DenCore::DenCoreTests::Product" /* DenCoreTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DenCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_12 /* NumberKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeysTest.swift; sourceTree = "<group>"; };
@@ -96,11 +102,12 @@
 		OBJ_11 /* DenCoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				00B035F32520D52A005ACEFA /* DenCoreTests.swift */,
 				OBJ_12 /* NumberKeysTest.swift */,
 				009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */,
 				009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */,
+				00B035FF252216B9005ACEFA /* GeocodeTest.swift */,
 				OBJ_13 /* XCTestManifests.swift */,
-				00B035F32520D52A005ACEFA /* DenCoreTests.swift */,
 			);
 			name = DenCoreTests;
 			path = Tests/DenCoreTests;
@@ -141,6 +148,8 @@
 				OBJ_9 /* DenCore.swift */,
 				007DE11E2519108000B7D8EE /* Arithmetic.swift */,
 				009ACB9E251A21FD000DB0AA /* DefaultKeys.swift */,
+				00B035F92521DBB2005ACEFA /* Geocode.swift */,
+				00AAE8C4252292D500024E48 /* Network.swift */,
 			);
 			name = DenCore;
 			path = Sources/DenCore;
@@ -230,7 +239,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				00AAE8C5252292D500024E48 /* Network.swift in Sources */,
 				OBJ_24 /* DenCore.swift in Sources */,
+				00B035FA2521DBB2005ACEFA /* Geocode.swift in Sources */,
 				009ACB9F251A21FD000DB0AA /* DefaultKeys.swift in Sources */,
 				007DE11F2519108000B7D8EE /* Arithmetic.swift in Sources */,
 			);
@@ -249,6 +260,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_42 /* NumberKeysTest.swift in Sources */,
+				00B03600252216B9005ACEFA /* GeocodeTest.swift in Sources */,
 				00B035F42520D52A005ACEFA /* DenCoreTests.swift in Sources */,
 				009ACBC5251BE583000DB0AA /* FunctionKeysTest.swift in Sources */,
 				009ACBB3251A25FA000DB0AA /* DefaultOperatorsTest.swift in Sources */,
