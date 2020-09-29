@@ -29,10 +29,11 @@
 		00AAE8CB2523320700024E48 /* NetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AAE8CA2523320700024E48 /* NetworkTest.swift */; };
 		00AAE8D1252370A700024E48 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AAE8D0252370A700024E48 /* Models.swift */; };
 		00AAE8D72523715D00024E48 /* DefaultEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AAE8D62523715D00024E48 /* DefaultEndpoints.swift */; };
-		00B035F42520D52A005ACEFA /* DenCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035F32520D52A005ACEFA /* DenCoreTests.swift */; };
+		00AAE8E12523CCD600024E48 /* OperatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AAE8E02523CCD600024E48 /* OperatorTest.swift */; };
+		00AAE8F22523CD5C00024E48 /* DefaultEndpointsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AAE8F12523CD5C00024E48 /* DefaultEndpointsTest.swift */; };
+		00B035F42520D52A005ACEFA /* CalculatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035F32520D52A005ACEFA /* CalculatorTest.swift */; };
 		00B035FA2521DBB2005ACEFA /* Geocode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035F92521DBB2005ACEFA /* Geocode.swift */; };
 		00B03600252216B9005ACEFA /* GeocodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035FF252216B9005ACEFA /* GeocodeTest.swift */; };
-		OBJ_24 /* DenCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DenCore.swift */; };
 		OBJ_31 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_42 /* NumberKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* NumberKeysTest.swift */; };
 		OBJ_43 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* XCTestManifests.swift */; };
@@ -65,7 +66,9 @@
 		00AAE8CA2523320700024E48 /* NetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTest.swift; sourceTree = "<group>"; };
 		00AAE8D0252370A700024E48 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		00AAE8D62523715D00024E48 /* DefaultEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEndpoints.swift; sourceTree = "<group>"; };
-		00B035F32520D52A005ACEFA /* DenCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenCoreTests.swift; sourceTree = "<group>"; };
+		00AAE8E02523CCD600024E48 /* OperatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorTest.swift; sourceTree = "<group>"; };
+		00AAE8F12523CD5C00024E48 /* DefaultEndpointsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEndpointsTest.swift; sourceTree = "<group>"; };
+		00B035F32520D52A005ACEFA /* CalculatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTest.swift; sourceTree = "<group>"; };
 		00B035F92521DBB2005ACEFA /* Geocode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocode.swift; sourceTree = "<group>"; };
 		00B035FF252216B9005ACEFA /* GeocodeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeTest.swift; sourceTree = "<group>"; };
 		"DenCore::DenCore::Product" /* DenCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DenCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +78,6 @@
 		OBJ_17 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		OBJ_18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_9 /* DenCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00AAE8E62523CD2700024E48 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				00B035F32520D52A005ACEFA /* CalculatorTest.swift */,
+				OBJ_12 /* NumberKeysTest.swift */,
+				009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */,
+				009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */,
+				00AAE8E02523CCD600024E48 /* OperatorTest.swift */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+		00AAE8E72523CD4100024E48 /* Geocode */ = {
+			isa = PBXGroup;
+			children = (
+				00B035FF252216B9005ACEFA /* GeocodeTest.swift */,
+			);
+			path = Geocode;
+			sourceTree = "<group>";
+		};
+		00AAE8EC2523CD4800024E48 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				00AAE8CA2523320700024E48 /* NetworkTest.swift */,
+				00AAE8F12523CD5C00024E48 /* DefaultEndpointsTest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		00AAE8FB2523CDDE00024E48 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				007DE11E2519108000B7D8EE /* Arithmetic.swift */,
+				009ACB9E251A21FD000DB0AA /* DefaultKeys.swift */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+		00AAE9002523CDE700024E48 /* Geocode */ = {
+			isa = PBXGroup;
+			children = (
+				00B035F92521DBB2005ACEFA /* Geocode.swift */,
+			);
+			path = Geocode;
+			sourceTree = "<group>";
+		};
+		00AAE9052523CDED00024E48 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				00AAE8C4252292D500024E48 /* Network.swift */,
+				00AAE8D0252370A700024E48 /* Models.swift */,
+				00AAE8D62523715D00024E48 /* DefaultEndpoints.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,12 +166,9 @@
 		OBJ_11 /* DenCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				00B035F32520D52A005ACEFA /* DenCoreTests.swift */,
-				OBJ_12 /* NumberKeysTest.swift */,
-				009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */,
-				009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */,
-				00B035FF252216B9005ACEFA /* GeocodeTest.swift */,
-				00AAE8CA2523320700024E48 /* NetworkTest.swift */,
+				00AAE8E62523CD2700024E48 /* Calculator */,
+				00AAE8E72523CD4100024E48 /* Geocode */,
+				00AAE8EC2523CD4800024E48 /* Network */,
 				OBJ_13 /* XCTestManifests.swift */,
 			);
 			name = DenCoreTests;
@@ -152,13 +207,9 @@
 		OBJ_8 /* DenCore */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* DenCore.swift */,
-				007DE11E2519108000B7D8EE /* Arithmetic.swift */,
-				009ACB9E251A21FD000DB0AA /* DefaultKeys.swift */,
-				00B035F92521DBB2005ACEFA /* Geocode.swift */,
-				00AAE8C4252292D500024E48 /* Network.swift */,
-				00AAE8D0252370A700024E48 /* Models.swift */,
-				00AAE8D62523715D00024E48 /* DefaultEndpoints.swift */,
+				00AAE8FB2523CDDE00024E48 /* Calculator */,
+				00AAE9002523CDE700024E48 /* Geocode */,
+				00AAE9052523CDED00024E48 /* Network */,
 			);
 			name = DenCore;
 			path = Sources/DenCore;
@@ -249,7 +300,6 @@
 			buildActionMask = 0;
 			files = (
 				00AAE8C5252292D500024E48 /* Network.swift in Sources */,
-				OBJ_24 /* DenCore.swift in Sources */,
 				00B035FA2521DBB2005ACEFA /* Geocode.swift in Sources */,
 				00AAE8D1252370A700024E48 /* Models.swift in Sources */,
 				009ACB9F251A21FD000DB0AA /* DefaultKeys.swift in Sources */,
@@ -271,9 +321,11 @@
 			buildActionMask = 0;
 			files = (
 				00AAE8CB2523320700024E48 /* NetworkTest.swift in Sources */,
+				00AAE8E12523CCD600024E48 /* OperatorTest.swift in Sources */,
 				OBJ_42 /* NumberKeysTest.swift in Sources */,
 				00B03600252216B9005ACEFA /* GeocodeTest.swift in Sources */,
-				00B035F42520D52A005ACEFA /* DenCoreTests.swift in Sources */,
+				00B035F42520D52A005ACEFA /* CalculatorTest.swift in Sources */,
+				00AAE8F22523CD5C00024E48 /* DefaultEndpointsTest.swift in Sources */,
 				009ACBC5251BE583000DB0AA /* FunctionKeysTest.swift in Sources */,
 				009ACBB3251A25FA000DB0AA /* DefaultOperatorsTest.swift in Sources */,
 				OBJ_43 /* XCTestManifests.swift in Sources */,

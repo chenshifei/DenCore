@@ -29,33 +29,6 @@ final class DefaultOperatorsTest: XCTestCase {
         DenAssertSuccess(result, 33.33)
     }
     
-    func testInsertZeroBeforeDirectOperator() {
-        var result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.add)
-        DenAssertSuccess(result, 0)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.functionKeyPressed(key: .equal)
-        DenAssertSuccess(result, 1)
-    }
-    
-    func testContinousOperator() {
-        var result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.add)
-        DenAssertSuccess(result, 1)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.substract)
-        DenAssertSuccess(result, 3)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 4))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.multiply)
-        DenAssertSuccess(result, -1)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 4))
-        result = circuitBoard.functionKeyPressed(key: .equal)
-        DenAssertSuccess(result, -4)
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.add)
-        DenAssertSuccess(result, -4)
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.multiply)
-        DenAssertSuccess(result, -4)
-    }
-    
     func testDefaultSubstractOperator() {
         var result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
         result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
@@ -143,25 +116,13 @@ final class DefaultOperatorsTest: XCTestCase {
         DenAssertSuccess(result, 0.99939082701, accuracy: 1e-8)
     }
     
-    func testDirectEqualAfterOperator() {
-        var result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.add)
-        DenAssertSuccess(result, 11)
-        result = circuitBoard.functionKeyPressed(key: .equal)
-        DenAssertSuccess(result, 11)
-    }
-
     static var allTests = [
         ("testDefaultAddOperator", testDefaultAddOperator),
-        ("testInsertZeroBeforeDirectOperator", testInsertZeroBeforeDirectOperator),
-        ("testContinousOperator", testContinousOperator),
         ("testDefaultSubstractOperator", testDefaultSubstractOperator),
         ("testDefaultMultiplyOperator", testDefaultMultiplyOperator),
         ("testDefaultDivideOperator", testDefaultDivideOperator),
         ("testDefaultSinOperator", testDefaultSinOperator),
         ("testDefaultCosOperator", testDefaultCosOperator),
-        ("testDirectEqualAfterOperator", testDirectEqualAfterOperator)
     ]
 }
 

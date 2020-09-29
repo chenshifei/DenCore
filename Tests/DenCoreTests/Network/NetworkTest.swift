@@ -144,24 +144,12 @@ final class NetworkTest: XCTestCase {
         }
     }
     
-    func testFetchExchangeRates() {
-        let expection = expectation(description: "Fetch from coinbase API - Exchange Rates")
-        DefaultEndpoints.Currency.fetchExchangeRates { (result, error) in
-            expection.fulfill()
-            XCTAssertNotNil(result)
-            XCTAssertNil(error)
-            XCTAssertNotNil(result?.data.rates["USD"])
-        }
-        waitForExpectations(timeout: 3)
-    }
-    
     static var allTests = [
         ("testFetchFromRealServer", testFetchFromRealServer),
         ("testStatusCodeNot200", testStatusCodeNot200),
         ("testUndecodeableObject", testUndecodeableObject),
         ("testRequestSuccess", testRequestSuccess),
         ("testRequestReturnedError", testRequestReturnedError),
-        ("testEmptyObject", testEmptyObject),
-        ("testFetchExchangeRates", testFetchExchangeRates)
+        ("testEmptyObject", testEmptyObject)
     ]
 }
