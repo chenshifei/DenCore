@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Result and Error Types
+
 /// `tuple` type for retrieving the calculation result
 /// - Note: Only one of the members will be returned
 /// The first member is a `Double` type result, if the calculation is successful.
@@ -23,6 +25,8 @@ public enum CircuitBoardError: Error, Equatable {
     /// Case for division by zero.
     case DividedByZero
 }
+
+// MARK: - Calculator Keys
 
 /// `enum` type for keys on the calculator numpad. Possible values are numbers and separators.
 /// - Warning: When initializing instances with numbers, it is possible to provide a value other than digits `0` to `9`,
@@ -77,6 +81,8 @@ public struct OperatorKey {
 public enum FunctionKey {
     case clear, equal
 }
+
+// MARK: - Calculator
 
 /// The main class of the calculator
 /// - Note: It can not be inherited.
