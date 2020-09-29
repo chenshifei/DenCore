@@ -7,7 +7,6 @@
 
 import XCTest
 import CoreLocation
-import Contacts
 @testable import DenCore
 
 final class MockGeocoder: Geocoder {
