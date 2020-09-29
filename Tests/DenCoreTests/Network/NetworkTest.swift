@@ -31,21 +31,6 @@ struct AnotherMockData: Codable, Equatable {
 final class NetworkTest: XCTestCase {
     let testURL: URL = URL(string: "https://testdomain.com")!
     
-    func testFetchFromRealServer() {
-        let expection = expectation(description: "Fetch from real server")
-        let networkService = NetworkCable()
-        guard let url = URL(string: "https://api.coinbase.com/v2/exchange-rates?currency=BTC") else {
-            XCTFail()
-            return
-        }
-        networkService.fetchData(from: url) { (data: ExchangeRates?, error) in
-            expection.fulfill()
-            XCTAssertNotNil(data)
-            XCTAssertNil(error)
-        }
-        waitForExpectations(timeout: 3)
-    }
-    
     func testStatusCodeNot200() {
         let statusCode = 404
         
@@ -145,7 +130,6 @@ final class NetworkTest: XCTestCase {
     }
     
     static var allTests = [
-        ("testFetchFromRealServer", testFetchFromRealServer),
         ("testStatusCodeNot200", testStatusCodeNot200),
         ("testUndecodeableObject", testUndecodeableObject),
         ("testRequestSuccess", testRequestSuccess),
