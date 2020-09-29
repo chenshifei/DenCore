@@ -26,6 +26,7 @@
 		009ACBB3251A25FA000DB0AA /* DefaultOperatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */; };
 		009ACBC5251BE583000DB0AA /* FunctionKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */; };
 		00AAE8C5252292D500024E48 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AAE8C4252292D500024E48 /* Network.swift */; };
+		00AAE8CB2523320700024E48 /* NetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AAE8CA2523320700024E48 /* NetworkTest.swift */; };
 		00B035F42520D52A005ACEFA /* DenCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035F32520D52A005ACEFA /* DenCoreTests.swift */; };
 		00B035FA2521DBB2005ACEFA /* Geocode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035F92521DBB2005ACEFA /* Geocode.swift */; };
 		00B03600252216B9005ACEFA /* GeocodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B035FF252216B9005ACEFA /* GeocodeTest.swift */; };
@@ -59,6 +60,7 @@
 		009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultOperatorsTest.swift; sourceTree = "<group>"; };
 		009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionKeysTest.swift; sourceTree = "<group>"; };
 		00AAE8C4252292D500024E48 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		00AAE8CA2523320700024E48 /* NetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTest.swift; sourceTree = "<group>"; };
 		00B035F32520D52A005ACEFA /* DenCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenCoreTests.swift; sourceTree = "<group>"; };
 		00B035F92521DBB2005ACEFA /* Geocode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocode.swift; sourceTree = "<group>"; };
 		00B035FF252216B9005ACEFA /* GeocodeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeTest.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				009ACBC4251BE583000DB0AA /* FunctionKeysTest.swift */,
 				009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */,
 				00B035FF252216B9005ACEFA /* GeocodeTest.swift */,
+				00AAE8CA2523320700024E48 /* NetworkTest.swift */,
 				OBJ_13 /* XCTestManifests.swift */,
 			);
 			name = DenCoreTests;
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				00AAE8CB2523320700024E48 /* NetworkTest.swift in Sources */,
 				OBJ_42 /* NumberKeysTest.swift in Sources */,
 				00B03600252216B9005ACEFA /* GeocodeTest.swift in Sources */,
 				00B035F42520D52A005ACEFA /* DenCoreTests.swift in Sources */,
