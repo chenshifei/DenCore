@@ -29,15 +29,7 @@ extension CLGeocoder: Geocoder {
 }
 
 public class AntennaDish {
-    internal let geocoder: Geocoder
-    
-    init(geocoder: Geocoder) {
-        self.geocoder = geocoder
-    }
-    
-    convenience init() {
-        self.init(geocoder: CLGeocoder())
-    }
+    internal var geocoder: Geocoder = CLGeocoder()
     
     public func parseLocation(_ location: CLLocation, completion: @escaping ([CLPlacemark]?, Error?) -> Void ) {
         if geocoder.hasOngoingGeocode {

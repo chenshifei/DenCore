@@ -65,7 +65,8 @@ final class GeoCodingTest: XCTestCase {
         let mock = MockGeocoder()
         mock.doGeocodeTask = false
         mock.task = .ongoing
-        antennaDish = AntennaDish(geocoder: mock)
+        antennaDish = AntennaDish()
+        antennaDish.geocoder = mock
         let location = CLLocation(latitude: 59.31, longitude: 18.06)
         let _ = antennaDish.parseLocation(location) { (result, error) in
             switch mock.task {
