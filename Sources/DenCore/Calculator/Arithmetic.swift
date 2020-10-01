@@ -75,6 +75,17 @@ public struct OperatorKey {
     public let arity: Arity
     /// The actual calculation process.
     public let operation: OperationHandler
+    
+    /// Default initializer.
+    /// - Parameters:
+    ///   - name: The name of the operator.
+    ///   - arity: Either a `.binary` operator or an `.unary` one.
+    ///   - operation: A block to define the actual operator calculation
+    public init(name: String, arity: Arity, operation: @escaping OperationHandler) {
+        self.name = name
+        self.arity = arity
+        self.operation = operation
+    }
 }
 
 /// `enum` type for the function keys on the calculator. Currently only two types are defined: "clear" and "equal"
@@ -96,6 +107,9 @@ public final class CircuitBoard {
     internal var answerRegister: Double = 0
     /// Temp memory for storing the intermediate result during a sequence of operators. e.g. `1+2+3+4`.
     internal var intermediateRegister: Double?
+    
+    /// Default no parameter initializer
+    public init() {}
     
     /// Parse the digits register as a complete number
     /// - Throws: `CircuitBoardError.ArgumentUnparseable(String)` if the parse fails.

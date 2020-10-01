@@ -42,6 +42,9 @@ public class AntennaDish {
     /// The internal geocoder object
     internal var geocoder: Geocoder = CLGeocoder()
     
+    /// Default no parameter initializer
+    public init() {}
+    
     /// Reverse geocode a location into a human readable string.
     /// - Parameters:
     ///   - location: The location to parse

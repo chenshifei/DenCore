@@ -44,6 +44,9 @@ extension URLSession: NetworkSession {
 public class NetworkCable {
     internal var session: NetworkSession = URLSession()
     
+    /// Default no parameter initializer
+    public init() {}
+    
     /// Retrive data from a URL using the HTTP `GET` method.
     /// - Parameters:
     ///   - url: The URL to be fetched

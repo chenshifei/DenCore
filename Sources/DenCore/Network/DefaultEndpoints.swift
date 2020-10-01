@@ -9,12 +9,12 @@ import Foundation
 
 /// This struct pre-defines API endpoints for convenience.
 public struct DefaultEndpoints {
-    static let cable = NetworkCable()
+    internal static let cable = NetworkCable()
     
     /// Currency related APIs provided by [coinbase.com](coinbase.com)
     public struct Currency {
-        static let host = "api.coinbase.com"
-        static let scheme = "https"
+        private static let host = "api.coinbase.com"
+        private static let scheme = "https"
         
         /// Fetches the latest exchange rates.
         /// - SeeAlso:
