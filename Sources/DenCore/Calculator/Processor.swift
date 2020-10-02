@@ -13,11 +13,11 @@ import Foundation
 /// - Note: Only one of the members will be returned
 /// The first member is a `Double` type result, if the calculation is successful.
 /// The second member is an `Error` only of the calculation failed. Detailed infomation can also be found in that `Error`.
-public typealias CircuitBoardResult = (Double?, Error?)
+public typealias ProcessorResult = (Double?, Error?)
 
 /// `enum` type for possible errors that could occur during calculation
 /// - Note: Overflow is not inlcuded as Swift will wrap Double overflow into `infinity`.
-public enum CircuitBoardError: Error, Equatable {
+public enum ProcessorError: Error, Equatable {
     /// Case for unparseable number, e.g.  `"11-21"`, since input digits are parsed as `String`.
     case ArgumentUnparseable(String)
     /// Case for missing arguments when doing calculation.
@@ -26,78 +26,11 @@ public enum CircuitBoardError: Error, Equatable {
     case DividedByZero
 }
 
-// MARK: - Calculator Keys
-
-/// `enum` type for keys on the calculator numpad. Possible values are numbers and separators.
-/// - Warning: When initializing instances with numbers, it is possible to provide a value other than digits `0` to `9`,
-/// e.g. `11`, as a shortcut to input large numbers, but this could result in an unparseable argument. Use at your own risk
-public enum NumpadKey: Equatable {
-    /// Case for digits.
-    case digit(underlyingValue: Int)
-    /// Case for separators.
-    case separator
-    
-    /// The `String` value used when parsing numbers
-    internal var literalValue: String {
-        switch self {
-        case .digit(let i):
-            return String(i)
-        case .separator:
-            return "."
-        }
-    }
-}
-
-/// `struct` type for operator keys, e.g. + (add).
-public struct OperatorKey {
-    /// `closure` type for the actual calculation process.
-    /// - Parameters: An array of `Double` as the calulation arguments.
-    /// - Returns: A `Double` number indicating the calculation result.
-    /// - Throws: `error` when calculation fails, e.g. division by zero.
-    public typealias OperationHandler = ([Double]) throws -> Double
-    
-    /// `enum` type to define if the operator is an unary or  binary one.
-    public enum Arity {
-        case unary, binary
-        internal var numberOfArguments: Int {
-            switch self {
-            case .unary:
-                return 1
-            case .binary:
-                return 2
-            }
-        }
-    }
-    
-    /// The name of the operator
-    public let name: String
-    /// Number of arguments the operator needs
-    public let arity: Arity
-    /// The actual calculation process.
-    public let operation: OperationHandler
-    
-    /// Default initializer.
-    /// - Parameters:
-    ///   - name: The name of the operator.
-    ///   - arity: Either a `.binary` operator or an `.unary` one.
-    ///   - operation: A block to define the actual operator calculation
-    public init(name: String, arity: Arity, operation: @escaping OperationHandler) {
-        self.name = name
-        self.arity = arity
-        self.operation = operation
-    }
-}
-
-/// `enum` type for the function keys on the calculator. Currently only two types are defined: "clear" and "equal"
-public enum FunctionKey {
-    case clear, equal
-}
-
 // MARK: - Calculator
 
 /// The main class of the calculator
 /// - Note: It can not be inherited.
-public final class CircuitBoard {
+public final class Processor {
     /// Temp memory of the input digits. Will be cleaned after an operator key or function key.
     internal var digitsRegister = [NumpadKey]()
     /// Temp memory for incompleted operator. Will be cleaned after the function key.
@@ -124,7 +57,7 @@ public final class CircuitBoard {
          Will be changed in the future.
         */
         guard let result = Double(newLiteralValue) else {
-            throw CircuitBoardError.ArgumentUnparseable(newLiteralValue)
+            throw ProcessorError.ArgumentUnparseable(newLiteralValue)
         }
         return result
     }
@@ -158,11 +91,11 @@ public final class CircuitBoard {
     /// Run the actual calculation defined by the operator.
     /// - Parameter op: The operator to run
     /// - Returns: A tuple whose first member is the result if successes, second member is the error if fails.
-    internal func doCalculation(_ op: OperatorKey?) -> CircuitBoardResult {
+    internal func doCalculation(_ op: OperatorKey?) -> ProcessorResult {
         let args = prepareArgument()
         guard var result = args.first else {
             // guard the argsments isn't empty
-            return (nil, CircuitBoardError.ArgumentMissing)
+            return (nil, ProcessorError.ArgumentMissing)
         }
         guard let op = op else {
             // Check if the operator exits.
@@ -199,7 +132,7 @@ public final class CircuitBoard {
     /// Press a numpad key
     /// - Parameter key: The pressed key
     /// - Returns: A `tuple` which may contains the pressed digit (or a calculation result), or an error if anything wrong happens.
-    public func numpadKeyPressed(key: NumpadKey) -> CircuitBoardResult {
+    public func numpadKeyPressed(key: NumpadKey) -> ProcessorResult {
         digitsRegister.append(key)
         if digitsRegister.filter({ $0 == .separator }).count > 1 {
             // Prevent input multiple separators
@@ -216,7 +149,7 @@ public final class CircuitBoard {
     /// Press an operator key
     /// - Parameter key: The pressed key
     /// - Returns: A `tuple` which may contains a calculation result, or an error if anything wrong happens.
-    public func operatorKeyPressed(key: OperatorKey) -> CircuitBoardResult {
+    public func operatorKeyPressed(key: OperatorKey) -> ProcessorResult {
         var result = doCalculation(operatorRegister)
         guard let _ = result.0, result.1 == nil else {
             // guard nothing unexpected happened when executing the stored operator calculation
@@ -228,7 +161,7 @@ public final class CircuitBoard {
     
     /// Press the Equal key
     /// - Returns: A `tuple` which may contains a calculation result (or the number just entered), or an error if anything wrong happens.
-    internal func handleEqualKeyPressed() -> CircuitBoardResult {
+    internal func handleEqualKeyPressed() -> ProcessorResult {
         defer {
             intermediateRegister = nil
             operatorRegister = nil
@@ -244,7 +177,7 @@ public final class CircuitBoard {
     /// Press a function key
     /// - Parameter key: The pressed key
     /// - Returns: A `tuple` which may contains a calculation result (or the number just entered), or an error if anything wrong happens.
-    public func functionKeyPressed(key: FunctionKey) -> CircuitBoardResult {
+    public func functionKeyPressed(key: FunctionKey) -> ProcessorResult {
         switch key {
         case .clear:
             clearAll()

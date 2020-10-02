@@ -34,7 +34,7 @@ public struct DefaultKeys {
         /// otherwise will case a `CircuitBoardError.DividedByZero` error
         public static let divide = OperatorKey(name: "/", arity: .binary) { args in
             let lhs = args[0], rhs = args[1]
-            guard rhs != 0 else { throw CircuitBoardError.DividedByZero }
+            guard rhs != 0 else { throw ProcessorError.DividedByZero }
             return lhs / rhs
         }
         

@@ -9,10 +9,12 @@ final class NumpadKeysTest: XCTestCase {
     }
     
     func testNumpadKeyName() {
-        var key = NumpadKey.digit(underlyingValue: 1)
-        XCTAssertEqual(key.name, "1")
-        key = NumpadKey.digit(underlyingValue: -21)
-        XCTAssertEqual(key.name, "-21")
+        var value = 1
+        var key = NumpadKey.digit(underlyingValue: value)
+        XCTAssertEqual(key.name, String(value))
+        value = -21
+        key = NumpadKey.digit(underlyingValue: value)
+        XCTAssertEqual(key.name, String(value))
     }
     
     func testParseNum() {
@@ -32,7 +34,7 @@ final class NumpadKeysTest: XCTestCase {
         var result = processor.numpadKeyPressed(key: .digit(underlyingValue: 11))
         DenAssertSuccess(result, 11)
         result = processor.numpadKeyPressed(key: .digit(underlyingValue: -21))
-        DenAssertFailure(result, CircuitBoardError.ArgumentUnparseable("11-21"))
+        DenAssertFailure(result, ProcessorError.ArgumentUnparseable("11-21"))
     }
     
     func testInsertZeroBeforeDirectSpearator() {
@@ -61,7 +63,7 @@ final class NumpadKeysTest: XCTestCase {
     }
 
     static var allTests = [
-        ("testNumberKeyName", testNumberKeyName),
+        ("testNumberKeyName", testNumpadKeyName),
         ("testParseNum", testParseNum),
         ("testInsertZeroBeforeDirectSpearator", testInsertZeroBeforeDirectSpearator),
         ("testMultipleSeparator", testMultipleSeparator),

@@ -9,110 +9,134 @@ import XCTest
 @testable import DenCore
 
 final class DefaultOperatorsTest: XCTestCase {
-    var circuitBoard = CircuitBoard()
+    var processor = Processor()
     
     override func setUp() {
-        circuitBoard = CircuitBoard()
+        processor = Processor()
     }
     
     func testDefaultAddOperator() {
-        var result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.add)
+        let key = DefaultKeys.Operator.add
+        XCTAssertEqual(key.name, "+")
+        XCTAssertEqual(key.arity.numberOfArguments, 2)
+        
+        var result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: key)
         DenAssertSuccess(result, 11)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.numpadKeyPressed(key: .separator)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 3))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 3))
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 2))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 2))
+        result = processor.numpadKeyPressed(key: .separator)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 3))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 3))
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 33.33)
     }
     
     func testDefaultSubstractOperator() {
-        var result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.substract)
+        let key = DefaultKeys.Operator.substract
+        XCTAssertEqual(key.name, "-")
+        XCTAssertEqual(key.arity.numberOfArguments, 2)
+        
+        var result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: key)
         DenAssertSuccess(result, 11)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.numpadKeyPressed(key: .separator)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 3))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 3))
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 2))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 2))
+        result = processor.numpadKeyPressed(key: .separator)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 3))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 3))
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, -11.33, accuracy: 1e-8)
     }
     
     func testDefaultMultiplyOperator() {
-        var result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.multiply)
+        let key = DefaultKeys.Operator.multiply
+        XCTAssertEqual(key.name, "*")
+        XCTAssertEqual(key.arity.numberOfArguments, 2)
+        
+        var result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: key)
         DenAssertSuccess(result, 11)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.numpadKeyPressed(key: .separator)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 3))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 3))
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 2))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 2))
+        result = processor.numpadKeyPressed(key: .separator)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 3))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 3))
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 245.63)
     }
     
     func testDefaultDivideOperator() {
-        var result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.divide)
+        let key = DefaultKeys.Operator.divide
+        XCTAssertEqual(key.name, "/")
+        XCTAssertEqual(key.arity.numberOfArguments, 2)
+        
+        var result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: key)
         DenAssertSuccess(result, 11)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 2))
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 5.5)
         
-        result = circuitBoard.functionKeyPressed(key: .clear)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.divide)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 0))
-        result = circuitBoard.functionKeyPressed(key: .equal)
-        DenAssertFailure(result, CircuitBoardError.DividedByZero)
+        result = processor.functionKeyPressed(key: .clear)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: DefaultKeys.Operator.divide)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 0))
+        result = processor.functionKeyPressed(key: .equal)
+        DenAssertFailure(result, ProcessorError.DividedByZero)
         
-        result = circuitBoard.functionKeyPressed(key: .clear)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.multiply)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.divide)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 0))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.add)
-        DenAssertFailure(result, CircuitBoardError.DividedByZero)
+        result = processor.functionKeyPressed(key: .clear)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: DefaultKeys.Operator.multiply)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: DefaultKeys.Operator.divide)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 0))
+        result = processor.operatorKeyPressed(key: DefaultKeys.Operator.add)
+        DenAssertFailure(result, ProcessorError.DividedByZero)
     }
     
     func testDefaultSinOperator() {
-        var result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.sin)
+        let key = DefaultKeys.Operator.sin
+        XCTAssertEqual(key.name, "sin")
+        XCTAssertEqual(key.arity.numberOfArguments, 1)
+        
+        var result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: key)
         DenAssertSuccess(result, 0.19080899537, accuracy: 1e-8)
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 0.19080899537, accuracy: 1e-8)
         
-        result = circuitBoard.functionKeyPressed(key: .clear)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.add)
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.sin)
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.functionKeyPressed(key: .clear)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: DefaultKeys.Operator.add)
+        result = processor.operatorKeyPressed(key: DefaultKeys.Operator.sin)
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 0.01745240643, accuracy: 1e-8)
     }
     
     func testDefaultCosOperator() {
-        var result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.cos)
+        let key = DefaultKeys.Operator.cos
+        XCTAssertEqual(key.name, "cos")
+        XCTAssertEqual(key.arity.numberOfArguments, 1)
+        
+        var result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: key)
         DenAssertSuccess(result, 0.98162718344, accuracy: 1e-8)
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 0.98162718344, accuracy: 1e-8)
         
-        result = circuitBoard.functionKeyPressed(key: .clear)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.add)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.cos)
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.functionKeyPressed(key: .clear)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: DefaultKeys.Operator.add)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: DefaultKeys.Operator.cos)
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 0.99939082701, accuracy: 1e-8)
     }
     

@@ -9,39 +9,45 @@ import XCTest
 @testable import DenCore
 
 final class FunctionKeysTest: XCTestCase {
-    var circuitBoard = CircuitBoard()
+    var processor = Processor()
     
     override func setUp() {
-        circuitBoard = CircuitBoard()
+        processor = Processor()
     }
     
     func testClearKey() {
-        var result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.add)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.functionKeyPressed(key: .equal)
-        result = circuitBoard.functionKeyPressed(key: .clear)
+        let clearKey = FunctionKey.clear
+        XCTAssertEqual(clearKey.name, "AC")
+        
+        var result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.operatorKeyPressed(key: DefaultKeys.Operator.add)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 2))
+        result = processor.functionKeyPressed(key: .equal)
+        result = processor.functionKeyPressed(key: .clear)
         DenAssertSuccess(result, 0)
-        XCTAssert(circuitBoard.digitsRegister.isEmpty)
-        XCTAssertNil(circuitBoard.operatorRegister)
-        XCTAssertNil(circuitBoard.intermediateRegister)
-        XCTAssertEqual(circuitBoard.answerRegister, 0)
+        XCTAssert(processor.digitsRegister.isEmpty)
+        XCTAssertNil(processor.operatorRegister)
+        XCTAssertNil(processor.intermediateRegister)
+        XCTAssertEqual(processor.answerRegister, 0)
     }
     
     func testEqualKey() {
-        var result = circuitBoard.functionKeyPressed(key: .equal)
+        let equalKey = FunctionKey.equal
+        XCTAssertEqual(equalKey.name, "=")
+        
+        var result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 0)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 1))
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 1))
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 1)
-        result = circuitBoard.operatorKeyPressed(key: DefaultKeys.Operator.add)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.operatorKeyPressed(key: DefaultKeys.Operator.add)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 2))
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 3)
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 3)
-        result = circuitBoard.numpadKeyPressed(key: .digit(underlyingValue: 2))
-        result = circuitBoard.functionKeyPressed(key: .equal)
+        result = processor.numpadKeyPressed(key: .digit(underlyingValue: 2))
+        result = processor.functionKeyPressed(key: .equal)
         DenAssertSuccess(result, 2)
     }
     
