@@ -26,11 +26,14 @@ public enum ProcessorError: Error, Equatable {
     case DividedByZero
 }
 
-// MARK: - Calculator
+// MARK: - Processor
 
 /// The main class of the calculator
 /// - Note: It can not be inherited.
 public final class Processor {
+    
+    // MARK: Properties
+    
     /// Temp memory of the input digits. Will be cleaned after an operator key or function key.
     internal var digitsRegister = [NumpadKey]()
     /// Temp memory for incompleted operator. Will be cleaned after the function key.
@@ -41,8 +44,12 @@ public final class Processor {
     /// Temp memory for storing the intermediate result during a sequence of operators. e.g. `1+2+3+4`.
     internal var intermediateRegister: Double?
     
+    // MARK: Initializers
+    
     /// Default no parameter initializer
     public init() {}
+    
+    // MARK: Internal functions
     
     /// Parse the digits register as a complete number
     /// - Throws: `CircuitBoardError.ArgumentUnparseable(String)` if the parse fails.
@@ -128,6 +135,8 @@ public final class Processor {
         answerRegister = 0
         intermediateRegister = nil
     }
+    
+    // MARK: Key events
     
     /// Press a numpad key
     /// - Parameter key: The pressed key
