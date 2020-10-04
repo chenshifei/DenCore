@@ -100,6 +100,10 @@ public class CircuitBoard {
         }
     }
     
+    // MARK: Initializers()
+    
+    public init() {}
+    
     // MARK: Functions
     
     /// Installs the default operator keys and the customized key (if exists) from the display unit to the keyboard unit.

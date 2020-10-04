@@ -69,7 +69,7 @@ public struct OperatorKey: KeyboardKey {
     }
     
     /// The name of the operator
-    internal let name: String
+    public let name: String
     /// Number of arguments the operator needs
     internal let arity: Arity
     /// The actual calculation process.
