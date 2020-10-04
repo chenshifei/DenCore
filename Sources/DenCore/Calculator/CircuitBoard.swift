@@ -77,6 +77,8 @@ public protocol KeyboardUnit {
 /// A `Circuitboard` object is responsible for handeling the communication between the input `KeyboardUnit` and the output `DisplayUnit`.
 public class CircuitBoard {
     
+    public static let defaultCustomizedKey = CustomizedKey(name: "func", enabled: false)
+    
     // MARK: Properties
     
     /// The internal processor
@@ -116,10 +118,9 @@ public class CircuitBoard {
         onFunctionKeyPressed(.clear)
         if let keyboard = keyboardUnit {
             keyboard.installOperatorKeys(newDisplayUnit.enabledOperatorKeys)
-            if let customizedKey = newDisplayUnit.customizedKey {
-                keyboard.installCustomizedKey(customizedKey)
-                keyboard.customizedKey(enable: customizedKey.enabled)
-            }
+            let customizedKey = newDisplayUnit.customizedKey ?? CircuitBoard.defaultCustomizedKey
+            keyboard.installCustomizedKey(customizedKey)
+            keyboard.customizedKey(enable: customizedKey.enabled)
         }
     }
     

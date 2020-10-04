@@ -85,6 +85,10 @@ final class CircuitBoardTest: XCTestCase {
         mockDisplay.customizedKey = CustomizedKey(name: customizedKeyName)
         circuitBoard.displayUnit = mockDisplay
         XCTAssertEqual(mockKeyboard.customizedKey?.name, customizedKeyName)
+    
+        mockDisplay.customizedKey = nil
+        circuitBoard.displayUnit = mockDisplay
+        XCTAssertEqual(mockKeyboard.customizedKey?.name, CircuitBoard.defaultCustomizedKey.name)
     }
     
     func testOnNumpadKeyPressed() {
