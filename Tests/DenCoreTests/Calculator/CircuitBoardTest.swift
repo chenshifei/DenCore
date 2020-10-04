@@ -26,6 +26,11 @@ final class MockDisplay: DisplayUnit {
         onResultsDelivered(result)
     }
     
+    func reset() {
+        display = ""
+        customizedKeyPressCount = 0
+    }
+    
     func customizedKeyPressed() {
         customizedKeyPressCount += 1
     }
@@ -135,7 +140,7 @@ final class CircuitBoardTest: XCTestCase {
         circuitBoard.onFunctionKeyPressed(.equal)
         XCTAssertEqual(mockDisplay.display, "12.2")
         circuitBoard.onFunctionKeyPressed(.clear)
-        XCTAssertEqual(mockDisplay.display, "0.0")
+        XCTAssertEqual(mockDisplay.display, "")
     }
     
     func testOnCustomizedKeyPressed() {
@@ -154,6 +159,8 @@ final class CircuitBoardTest: XCTestCase {
         mockDisplay.customizedKey?.enabled = false
         circuitBoard.onCustomizedKeyPressed()
         XCTAssertEqual(mockDisplay.customizedKeyPressCount, 1)
+        circuitBoard.onFunctionKeyPressed(.clear)
+        XCTAssertEqual(mockDisplay.customizedKeyPressCount, 0)
     }
     
     func testEnableCustomizedKey() {

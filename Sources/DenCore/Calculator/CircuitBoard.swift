@@ -46,6 +46,9 @@ public protocol DisplayUnit {
     /// - Parameter result: The  result from the equation, may contains an error.
     func equationEvaluated(result: ProcessorResult)
     
+    /// Resets the display unit to its initial state. Called when the clear key is pressed.
+    func reset()
+    
     /// Handels when the customized key is pressed.
     /// - Note: The display unit itself should be responsible for any errors that might happen.
     func customizedKeyPressed()
@@ -153,10 +156,11 @@ public class CircuitBoard {
     /// - Parameter key: The  pressed`FunctionKey`.
     public func onFunctionKeyPressed(_ key: FunctionKey) {
         let result = processor.functionKeyPressed(key: key)
-        if case .equal = key {
+        switch key {
+        case .equal:
             displayUnit?.equationEvaluated(result: result)
-        } else {
-            displayUnit?.numericOutputDelivered(result)
+        case .clear:
+            displayUnit?.reset()
         }
     }
 }
