@@ -37,6 +37,7 @@
 		00D9315825271C0C00BF1F05 /* CustomizedKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D9315725271C0C00BF1F05 /* CustomizedKeysTest.swift */; };
 		00D9316225271EB500BF1F05 /* KeyboardKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D9316125271EB500BF1F05 /* KeyboardKeys.swift */; };
 		00D93178252A0DFC00BF1F05 /* CircuitBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D93177252A0DFC00BF1F05 /* CircuitBoard.swift */; };
+		00D93182252A1FD300BF1F05 /* CircuitBoardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D93181252A1FD300BF1F05 /* CircuitBoardTest.swift */; };
 		OBJ_31 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_42 /* NumpadKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* NumpadKeysTest.swift */; };
 		OBJ_43 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* XCTestManifests.swift */; };
@@ -77,6 +78,7 @@
 		00D9315725271C0C00BF1F05 /* CustomizedKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedKeysTest.swift; sourceTree = "<group>"; };
 		00D9316125271EB500BF1F05 /* KeyboardKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeys.swift; sourceTree = "<group>"; };
 		00D93177252A0DFC00BF1F05 /* CircuitBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitBoard.swift; sourceTree = "<group>"; };
+		00D93181252A1FD300BF1F05 /* CircuitBoardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitBoardTest.swift; sourceTree = "<group>"; };
 		"DenCore::DenCore::Product" /* DenCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DenCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DenCore::DenCoreTests::Product" /* DenCoreTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DenCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_12 /* NumpadKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadKeysTest.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				009ACBB2251A25FA000DB0AA /* DefaultOperatorsTest.swift */,
 				00AAE8E02523CCD600024E48 /* OperatorKeysTest.swift */,
 				00D9315725271C0C00BF1F05 /* CustomizedKeysTest.swift */,
+				00D93181252A1FD300BF1F05 /* CircuitBoardTest.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				00AAE8E12523CCD600024E48 /* OperatorKeysTest.swift in Sources */,
 				OBJ_42 /* NumpadKeysTest.swift in Sources */,
 				00B03600252216B9005ACEFA /* GeocodeTest.swift in Sources */,
+				00D93182252A1FD300BF1F05 /* CircuitBoardTest.swift in Sources */,
 				00D9315825271C0C00BF1F05 /* CustomizedKeysTest.swift in Sources */,
 				00B035F42520D52A005ACEFA /* CalculatorTest.swift in Sources */,
 				00AAE8F22523CD5C00024E48 /* DefaultEndpointsTest.swift in Sources */,
