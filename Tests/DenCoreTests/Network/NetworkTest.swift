@@ -105,6 +105,7 @@ final class NetworkTest: XCTestCase {
             XCTAssertNotNil(result)
             XCTAssertEqual(result, mockData)
             XCTAssertNil(error)
+            XCTAssert(Thread.isMainThread)
         }
     }
     
@@ -117,6 +118,7 @@ final class NetworkTest: XCTestCase {
         networkService.fetchData(from: testURL) { (data: Data?, error) in
             XCTAssertNil(data)
             XCTAssertNotNil(error)
+            XCTAssert(Thread.isMainThread)
             guard let error = error, error is NetworkCableError else {
                 XCTFail()
                 return

@@ -53,7 +53,7 @@ final class GeoCodingTest: XCTestCase {
         let location = CLLocation(latitude: 59.31, longitude: 18.06)
         let _ = antennaDish.parseLocation(location) { (result, error) in
             expection.fulfill()
-            
+            XCTAssert(Thread.isMainThread)
             let placemark = try! XCTUnwrap(result?.first)
             XCTAssertEqual(placemark.administrativeArea, "Stockholm")
             XCTAssertNil(error)

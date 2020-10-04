@@ -53,28 +53,30 @@ public class NetworkCable {
     ///   - completion: A block called when the request is finished, no matter it's successful or not.
     public func fetchData<T: Codable>(from url: URL, completion: @escaping (T?, Error?) -> Void) {
         session.get(from: url, completion: { data, response, error in
-            if let response = response as? HTTPURLResponse {
-                guard response.statusCode == 200 else {
-                    // Redirection and other codes that aren't really a failure are not included yet.
-                    completion(nil, NetworkCableError.HTTPStatusCodeError(response.statusCode))
-                    return
-                }
-                
-                guard let data = data else {
-                    completion(nil, NetworkCableError.EmptyData)
-                    return
-                }
-                do {
-                    let result = try JSONDecoder().decode(T.self, from: data)
-                    completion(result, nil)
-                    return
-                } catch {
+            DispatchQueue.main.async {
+                if let response = response as? HTTPURLResponse {
+                    guard response.statusCode == 200 else {
+                        // Redirection and other codes that aren't really a failure are not included yet.
+                        completion(nil, NetworkCableError.HTTPStatusCodeError(response.statusCode))
+                        return
+                    }
+                    
+                    guard let data = data else {
+                        completion(nil, NetworkCableError.EmptyData)
+                        return
+                    }
+                    do {
+                        let result = try JSONDecoder().decode(T.self, from: data)
+                        completion(result, nil)
+                        return
+                    } catch {
+                        completion(nil, error)
+                        return
+                    }
+                } else {
+                    // Non HTTP requests are not included yet.
                     completion(nil, error)
-                    return
                 }
-            } else {
-                // Non HTTP requests are not included yet.
-                completion(nil, error)
             }
         })
     }

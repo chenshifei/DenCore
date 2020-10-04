@@ -55,6 +55,10 @@ public class AntennaDish {
             geocoder.cancalOngoingGeocode()
         }
         
-        geocoder.parseLocation(location, completion: completion)
+        geocoder.parseLocation(location, completion: { result, error in
+            DispatchQueue.main.async {
+                completion(result, error)
+            }
+        })
     }
 }
