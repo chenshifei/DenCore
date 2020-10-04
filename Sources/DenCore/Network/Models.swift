@@ -17,7 +17,7 @@ import Foundation
 
 // MARK: - ExchangeRates
 public struct ExchangeRates: Codable {
-    let data: DataClass
+    public let data: DataClass
 }
 
 //
@@ -32,6 +32,6 @@ public struct ExchangeRates: Codable {
 
 // MARK: - DataClass
 public struct DataClass: Codable {
-    let currency: String
-    let rates: [String: String]
+    public let currency: String
+    public let rates: [String: String]
 }
