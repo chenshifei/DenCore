@@ -1,6 +1,7 @@
 language: swift
 os: osx
 osx_image: xcode12
-xcode_project: DenCore.xcodeproj # path to your xcodeproj folder
-xcode_scheme: DenCoreTests
-xcode_destination: platform=iOS Simulator,OS=14.0,name=iPhone 11
+install: (swift package update)
+script:
+  - (swift build)
+  - (swift test)
