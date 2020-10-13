@@ -36,13 +36,13 @@ final class MockDisplay: DisplayUnit {
     }
         
     private func onResultsDelivered(_ result: ProcessorResult) {
-        if let error = result.1 {
-            display = error.localizedDescription
-        } else if let number = result.0 {
-            display = String(number)
+        switch result {
+        case .failure(let e):
+            display = e.localizedDescription
+        case .success(let answer):
+            display = String(answer)
         }
     }
-    
 }
 
 final class MockKeyboard: KeyboardUnit {

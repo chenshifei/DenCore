@@ -13,7 +13,7 @@ import Foundation
 /// - Note: Only one of the members will be returned
 /// The first member is a `Double` type result, if the calculation is successful.
 /// The second member is an `Error` only of the calculation failed. Detailed infomation can also be found in that `Error`.
-public typealias ProcessorResult = (Double?, Error?)
+public typealias ProcessorResult = Result<Double, Error>
 
 /// `enum` type for possible errors that could occur during calculation
 /// - Note: Overflow is not inlcuded as Swift will wrap Double overflow into `infinity`.
@@ -102,14 +102,14 @@ public final class Processor {
         let args = prepareArgument()
         guard var result = args.first else {
             // guard the argsments isn't empty
-            return (nil, ProcessorError.ArgumentMissing)
+            return .failure(ProcessorError.ArgumentMissing)
         }
         guard let op = op else {
             // Check if the operator exits.
             // When no operator stores the parsed digits to the intermediate register
             // so that the digits register is ready for the next number
             intermediateRegister = result
-            return (result, nil)
+            return .success(result)
         }
         
         do {
@@ -121,10 +121,10 @@ public final class Processor {
                 operatorRegister = op
             }
             intermediateRegister = result
-            return (result, nil)
+            return .success(result)
         } catch {
             // catches any error during operator calculation and returns it
-            return (nil, error)
+            return .failure(error)
         }
     }
     
@@ -149,9 +149,9 @@ public final class Processor {
         }
         do {
             let result = try parseDigits()
-            return (result, nil)
+            return .success(result)
         } catch {
-            return (nil, error)
+            return .failure(error)
         }
     }
     
@@ -160,7 +160,7 @@ public final class Processor {
     /// - Returns: A `tuple` which may contains a calculation result, or an error if anything wrong happens.
     public func operatorKeyPressed(key: OperatorKey) -> ProcessorResult {
         var result = doCalculation(operatorRegister)
-        guard let _ = result.0, result.1 == nil else {
+        if case .failure = result {
             // guard nothing unexpected happened when executing the stored operator calculation
             return result
         }
@@ -177,7 +177,7 @@ public final class Processor {
         }
         
         let result = doCalculation(operatorRegister)
-        if let answer  = result.0 {
+        if case .success(let answer) = result {
             answerRegister = answer
         }
         return result
@@ -190,7 +190,7 @@ public final class Processor {
         switch key {
         case .clear:
             clearAll()
-            return (0, nil)
+            return .success(0)
         case .equal:
             return handleEqualKeyPressed()
         }
